@@ -1,0 +1,74 @@
+body{
+    background-color: #f7f7f7;
+}
+.heading-section{
+    background: #003067;
+}
+.heading-section h2{
+    color: white;
+    padding: 40px;
+    margin-bottom: 40px;
+}
+.container{
+    background: white;
+    padding: 32px;
+    border-radius: 16px;
+    color: #505050;
+    line-height: 2rem;
+    border: 1px solid #ebebeb;
+}
+
+.generatorSection-output-container{
+    padding-right: 14px;
+    padding-bottom: 30px;
+    padding-left: 24px;
+    width: 49% !important;
+}
+
+.generatorSection-output-container label{
+    font-weight: bold;
+}
+
+h3{
+    padding-bottom: 8px;
+    border-bottom: 3px solid #003067;
+    width: 96%;
+    margin: auto;
+    margin-bottom: 20px;
+    color: #003067;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.alternative-mortgage-rates{
+    width: 100% !important;
+    display: block !important;
+}
+
+textarea {
+    border: none;
+    border-radius: 8px;
+    background: #ebebeb;
+    padding: 16px;
+    border: 6px solid #ebebeb;
+    resize: none;
+}
+
+.card, .instruction{
+    width: 94%;
+    margin: auto;
+}
+
+.instruction input{
+    border: 1px solid #d1d1d1;
+    border-radius: 6px;
+}
+
+.card{
+    border: 1px solid #003067;
+}
+
+.card-header{
+    background: #003067;
+    color: white;
+}

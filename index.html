@@ -1,0 +1,346 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Excel to HTML Table - Mortgage Introducer Interest Rates</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/style.css">
+	<!-- reader by https://unpkg.com/ -->
+    <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
+	<script src="https://cdn.ckeditor.com/ckeditor5/11.0.1/classic/ckeditor.js"></script>
+</head>
+<body>
+	<div class="heading-section"><h2 class="text-center">Excel to HTML Table - Mortgage Introducer Interest Rates</h2></div>
+    <div class="container">
+    	<div class="instruction">
+			<p><b>Before uploading the excel file, please input the values below for "Alternative mortgage rates".</b> <br>Input the <b>starting row</b> and <b>last row</b> highighted in <b style="background: yellow;">YELLOW</b> on the sheet</p>
+		
+		<label for="alternativeMortgageRates-row-start">Starting row number: </label>  
+		<input type="number" id="alternativeMortgageRates-row-start" name="alternativeMortgageRates-row-start"> 
+		<label style="
+		margin-left: 24px;
+	" for="alternativeMortgageRates-row-end">Last row number: </label>  
+		<input type="number" id="alternativeMortgageRates-row-end" name="alternativeMortgageRates-row-end">
+		</div>
+		
+		
+		<br>
+		
+    	<div class="card">
+    		<div class="card-header"><b>Select Excel File</b></div>
+    		<div class="card-body">
+    			
+                <input type="file" id="excel_file" />
+
+    		</div>
+    	</div>
+        <div id="excel_data" class="mt-5"></div>
+		
+		
+		
+		<!-- <label for="editor1" style="padding-bottom: 8px;display: inline-block;">Input Descriptions:</label>  -->
+		    <!-- <textarea name="content" id="editor1"></textarea> -->
+		
+		
+		
+		
+		
+		 <div class="generatorSection-output-container" style="display: inline-block; width: 48%;">
+			<div>
+				<label for="outputCode_firstTimeBuyer">First Time Buyer mortgage rates:</label>
+				<textarea style="display:block; width: 100%; height: 400px;" class="outputCodeTextArea" id="outputCode_firstTimeBuyer" name="outputCode_firstTimeBuyer" >
+				</textarea>
+			</div>
+		</div>
+		<div class="generatorSection-output-container" style="display: inline-block; width: 48%;">
+			<div>
+				<label for="outputCode_remortgage">Remortgage Rates:</label>
+				<textarea style="display:block; width: 100%; height: 400px;" class="outputCodeTextArea" id="outputCode_remortgage" name="outputCode_remortgage" >
+				</textarea>
+			</div>
+		</div>
+		<div class="generatorSection-output-container" style="display: inline-block; width: 48%;">
+			<div>
+				<label for="outputCode_movingHome">Moving Home Mortgages:</label>
+				<textarea style="display:block; width: 100%; height: 400px;" class="outputCodeTextArea" id="outputCode_movingHome" name="outputCode_movingHome" >
+				</textarea>
+			</div>
+		</div>
+		<div class="generatorSection-output-container" style="display: inline-block; width: 48%;">
+			<div>
+				<label for="outputCode_buyToLet">Buy To Let mortgage rates:</label>
+				<textarea style="display:block; width: 100%; height: 400px;" class="outputCodeTextArea" id="outputCode_buyToLet" name="outputCode_buyToLet" >
+				</textarea>
+			</div>
+		</div>
+		
+		<div class="generatorSection-output-container" style="display: inline-block; width: 48%;">
+			<div>
+				<label for="outputCode_existingCustomers_barclays">Barclays mortgage rates for existing customers:</label>
+				<textarea style="display:block; width: 100%; height: 400px;" class="outputCodeTextArea" id="outputCode_existingCustomers_barclays" name="outputCode_existingCustomers_barclays" >
+				</textarea>
+			</div>
+		</div>
+		
+		<div class="generatorSection-output-container" style="display: inline-block; width: 48%;">
+			<div>
+				<label for="outputCode_existingCustomers_coventryBuildingSociety">Coventry building society mortgage rates for existing customers:</label>
+				<textarea style="display:block; width: 100%; height: 400px;" class="outputCodeTextArea" id="outputCode_existingCustomers_coventryBuildingSociety" name="outputCode_existingCustomers_coventryBuildingSociety" >
+				</textarea>
+			</div>
+		</div>
+		
+		
+		<div class="generatorSection-output-container" style="display: inline-block; width: 48%;">
+			<div>
+				<label for="outputCode_existingCustomers_hsbc">Hsbc mortgage rates for existing customers:</label>
+				<textarea style="display:block; width: 100%; height: 400px;" class="outputCodeTextArea" id="outputCode_existingCustomers_hsbc" name="outputCode_existingCustomers_hsbc" >
+				</textarea>
+			</div>
+		</div>
+		
+		<div class="generatorSection-output-container" style="display: inline-block; width: 48%;">
+			<div>
+				<label for="outputCode_existingCustomers_tsb">TSB mortgage rates existing customers :</label>
+				<textarea style="display:block; width: 100%; height: 400px;" class="outputCodeTextArea" id="outputCode_existingCustomers_tsb" name="outputCode_existingCustomers_tsb" >
+				</textarea>
+			</div>
+		</div>
+		
+		<div class="generatorSection-output-container" style="display: inline-block; width: 48%;">
+			<div>
+				<label for="outputCode_oneYearFixedRate">1 Year Fixed Rate mortgage:</label>
+				<textarea style="display:block; width: 100%; height: 400px;" class="outputCodeTextArea" id="outputCode_oneYearFixedRate" name="outputCode_oneYearFixedRate" >
+				</textarea>
+			</div>
+		</div>
+		
+		
+		<div class="generatorSection-output-container" style="display: inline-block; width: 48%;">
+			<div>
+				<label for="outputCode_twoYearFixedRate">2 year fixed rate mortgage:</label>
+				<textarea style="display:block; width: 100%; height: 400px;" class="outputCodeTextArea" id="outputCode_twoYearFixedRate" name="outputCode_twoYearFixedRate" >
+				</textarea>
+			</div>
+		</div>
+		
+		<div class="generatorSection-output-container" style="display: inline-block; width: 48%;">
+			<div>
+				<label for="outputCode_threeYearFixedRateMortgages">3 Year Fixed Rate Mortgages:</label>
+				<textarea style="display:block; width: 100%; height: 400px;" class="outputCodeTextArea" id="outputCode_threeYearFixedRateMortgages" name="outputCode_threeYearFixedRateMortgages" >
+				</textarea>
+			</div>
+		</div>
+		
+		<div class="generatorSection-output-container" style="display: inline-block; width: 48%;">
+			<div>
+				<label for="outputCode_fiveYearFixedRateMortgages">5 Year Fixed Rate Mortgages:</label>
+				<textarea style="display:block; width: 100%; height: 400px;" class="outputCodeTextArea" id="outputCode_fiveYearFixedRateMortgages" name="outputCode_fiveYearFixedRateMortgages" >
+				</textarea>
+			</div>
+		</div>
+		
+		<div class="generatorSection-output-container" style="display: inline-block; width: 48%;">
+			<div>
+				<label for="outputCode_sevenYearFixedRateMortgages">7 Year Fixed Rate Mortgages:</label>
+				<textarea style="display:block; width: 100%; height: 400px;" class="outputCodeTextArea" id="outputCode_sevenYearFixedRateMortgages" name="outputCode_sevenYearFixedRateMortgages" >
+				</textarea>
+			</div>
+		</div>
+		
+		<div class="generatorSection-output-container" style="display: inline-block; width: 48%;">
+			<div>
+				<label for="outputCode_tenYearFixedRateMortgages">10 Year Fixed Rate Mortgages:</label>
+				<textarea style="display:block; width: 100%; height: 400px;" class="outputCodeTextArea" id="outputCode_tenYearFixedRateMortgages" name="outputCode_tenYearFixedRateMortgages" >
+				</textarea>
+			</div>
+		</div>
+		
+		<div class="generatorSection-output-container" style="display: inline-block; width: 48%;">
+			<div>
+				<label for="outputCode_fifteenYearFixedRateMortgages">15 Year Fixed Rate Mortgages:</label>
+				<textarea style="display:block; width: 100%; height: 400px;" class="outputCodeTextArea" id="outputCode_fifteenYearFixedRateMortgages" name="outputCode_fifteenYearFixedRateMortgages" >
+				</textarea>
+			</div>
+		</div>
+		<br><br>
+		
+		<h3>Tracker mortgages</h3>
+		<div class="generatorSection-output-container" style="display: inline-block; width: 48%;">
+			<div>
+				<label for="outputCode_barclaysTrackerMortgages">Barclays Tracker Mortgage:</label>
+				<textarea style="display:block; width: 100%; height: 400px;" class="outputCodeTextArea" id="outputCode_barclaysTrackerMortgages" name="outputCode_barclaysTrackerMortgages" >
+				</textarea>
+			</div>
+		</div>
+		<div class="generatorSection-output-container" style="display: inline-block; width: 48%;">
+			<div>
+				<label for="outputCode_hsbcTrackerMortgages">HSBC Tracker Mortgages:</label>
+				<textarea style="display:block; width: 100%; height: 400px;" class="outputCodeTextArea" id="outputCode_hsbcTrackerMortgages" name="outputCode_hsbcTrackerMortgages" >
+				</textarea>
+			</div>
+		</div>
+		
+		<div class="generatorSection-output-container" style="display: inline-block; width: 48%;">
+			<div>
+				<label for="outputCode_twoYearTrackerMortgages">2 Year Tracker Mortgages:</label>
+				<textarea style="display:block; width: 100%; height: 400px;" class="outputCodeTextArea" id="outputCode_twoYearTrackerMortgages" name="outputCode_twoYearTrackerMortgages" >
+				</textarea>
+			</div>
+		</div>
+		
+		
+		<div class="generatorSection-output-container" style="display: inline-block; width: 48%;">
+			<div>
+				<label for="outputCode_fiveYearTracker">5 Year Tracker:</label>
+				<textarea style="display:block; width: 100%; height: 400px;" class="outputCodeTextArea" id="outputCode_fiveYearTracker" name="outputCode_fiveYearTracker" >
+				</textarea>
+			</div>
+		</div>
+		
+		<div class="generatorSection-output-container" style="display: inline-block; width: 48%;">
+			<div>
+				<label for="outputCode_tenYearTrackerMortgages">10-year tracker mortgages:</label>
+				<textarea style="display:block; width: 100%; height: 400px;" class="outputCodeTextArea" id="outputCode_tenYearTrackerMortgages" name="outputCode_tenYearTrackerMortgages" >
+				</textarea>
+			</div>
+		</div>
+		<!-- <div class="generatorSection-output-container" style="display: inline-block; width: 48%;"> -->
+			<!-- <div> -->
+				<!-- <label for="outputCode_lifetimeVariableMortgages">Lifetime Variable mortgages:</label> -->
+				<!-- <textarea style="display:block; width: 100%; height: 400px;" class="outputCodeTextArea" id="outputCode_lifetimeVariableMortgages" name="outputCode_lifetimeVariableMortgages" > -->
+				<!-- </textarea> -->
+			<!-- </div> -->
+		<!-- </div> -->
+		
+		<br><br>
+		
+		<h3>Alternative mortgage rates</h3>
+		
+		
+		<div class="generatorSection-output-container alternative-mortgage-rates" style="display: inline-block; width: 100%;">
+			<div>
+				<label for="outputCode_alternativeMortgageRates">Alternative mortgage rates:</label>
+				<textarea style="display:block; width: 100%; height: 400px;" class="outputCodeTextArea" id="outputCode_alternativeMortgageRates" name="outputCode_alternativeMortgageRates" >
+				</textarea>
+			</div>
+		</div>
+		
+		
+		<div class="generatorSection-output-container" style="display: inline-block; width: 48%;">
+			<div>
+				<label for="outputCode_greenMortgageRates">Green mortgage rate:</label>
+				<textarea style="display:block; width: 100%; height: 400px;" class="outputCodeTextArea" id="outputCode_greenMortgageRates" name="outputCode_greenMortgageRates" >
+				</textarea>
+			</div>
+		</div>
+		
+		<div class="generatorSection-output-container" style="display: inline-block; width: 48%;">
+			<div>
+				<label for="outputCode_familySpringboardMortgageRates">Family springboard mortgage rate:</label>
+				<textarea style="display:block; width: 100%; height: 400px;" class="outputCodeTextArea" id="outputCode_familySpringboardMortgageRates" name="outputCode_familySpringboardMortgageRates" >
+				</textarea>
+			</div>
+		</div>
+		<div class="generatorSection-output-container" style="display: inline-block; width: 48%;">
+			<div>
+				<label for="outputCode_mortgageGuaranteeMortgageRates">Mortgage Guarantee Scheme Fixed Mortgage Rates:</label>
+				<textarea style="display:block; width: 100%; height: 400px;" class="outputCodeTextArea" id="outputCode_mortgageGuaranteeMortgageRates" name="outputCode_mortgageGuaranteeMortgageRates" >
+				</textarea>
+			</div>
+		</div>
+		
+		<br><br>
+		
+		<h3>Banks</h3>
+		
+		
+		<div class="generatorSection-output-container" style="display: inline-block; width: 48%;">
+			<div>
+				<label for="outputCode_santander">Barclays:</label>
+				<textarea style="display:block; width: 100%; height: 400px;" class="outputCodeTextArea" id="outputCode_barclays" name="outputCode_barclays" >
+				</textarea>
+			</div>
+		</div>
+		
+		<div class="generatorSection-output-container" style="display: inline-block; width: 48%;">
+			<div>
+				<label for="outputCode_lloyds">Lloyds:</label>
+				<textarea style="display:block; width: 100%; height: 400px;" class="outputCodeTextArea" id="outputCode_lloyds" name="outputCode_lloyds" >
+				</textarea>
+			</div>
+		</div>
+		
+		
+		<div class="generatorSection-output-container" style="display: inline-block; width: 48%;">
+			<div>
+				<label for="outputCode_lloyds">Nationwide BS:</label>
+				<textarea style="display:block; width: 100%; height: 400px;" class="outputCodeTextArea" id="outputCode_nationwideBS" name="outputCode_nationwideBS" >
+				</textarea>
+			</div>
+		</div>
+		
+		<div class="generatorSection-output-container" style="display: inline-block; width: 48%;">
+			<div>
+				<label for="outputCode_santander">Natwest Group:</label>
+				<textarea style="display:block; width: 100%; height: 400px;" class="outputCodeTextArea" id="outputCode_natwestGroup" name="outputCode_natwestGroup" >
+				</textarea>
+			</div>
+		</div>
+		
+		<div class="generatorSection-output-container" style="display: inline-block; width: 48%;">
+			<div>
+				<label for="outputCode_hsbc">HSBC:</label>
+				<textarea style="display:block; width: 100%; height: 400px;" class="outputCodeTextArea" id="outputCode_hsbc" name="outputCode_hsbc" >
+				</textarea>
+			</div>
+		</div>
+		
+		<div class="generatorSection-output-container" style="display: inline-block; width: 48%;">
+			<div>
+				<label for="outputCode_hsbc">Virgin Money:</label>
+				<textarea style="display:block; width: 100%; height: 400px;" class="outputCodeTextArea" id="outputCode_virginMoney" name="outputCode_virginMoney" >
+				</textarea>
+			</div>
+		</div>
+		
+		<div class="generatorSection-output-container" style="display: inline-block; width: 48%;">
+			<div>
+				<label for="outputCode_santander">Santander:</label>
+				<textarea style="display:block; width: 100%; height: 400px;" class="outputCodeTextArea" id="outputCode_santander" name="outputCode_santander" >
+				</textarea>
+			</div>
+		</div>
+		
+		
+		<div class="generatorSection-output-container" style="display: inline-block; width: 48%;">
+			<div>
+				<label for="outputCode_coventryBS">Coventry Building Society:</label>
+				<textarea style="display:block; width: 100%; height: 400px;" class="outputCodeTextArea" id="outputCode_coventryBS" name="outputCode_coventryBS" >
+				</textarea>
+			</div>
+		</div>
+		
+		<div class="generatorSection-output-container" style="display: inline-block; width: 48%;">
+			<div>
+				<label for="outputCode_tsb">TSB:</label>
+				<textarea style="display:block; width: 100%; height: 400px;" class="outputCodeTextArea" id="outputCode_tsb" name="outputCode_tsb" >
+				</textarea>
+			</div>
+		</div>
+		
+		
+		<div class="generatorSection-output-container" style="display: inline-block; width: 48%;">
+			<div>
+				<label for="outputCode_yorkshireBuildingSociety">Yorkshire Building Society:</label>
+				<textarea style="display:block; width: 100%; height: 400px;" class="outputCodeTextArea" id="outputCode_yorkshireBuildingSociety" name="outputCode_yorkshireBuildingSociety" >
+				</textarea>
+			</div>
+		</div>
+		
+    </div>
+</body>
+</html>
+
+<script type="text/javascript" src="js/script.js"></script>
